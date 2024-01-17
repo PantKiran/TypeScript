@@ -14,7 +14,7 @@ class Person {
 
   set initialBalance(newBalance) {
     if (newBalance < 0) {
-      throw new Error("Score must be positive");
+      throw new Error("Balance  must be positive");
     }
     this.#initialBalance = newBalance;
   }
