@@ -1,7 +1,7 @@
 class Player {
   public readonly first: string;
   public readonly last: string;
-  private _score = 0;
+  protected _score = 0;
   constructor(first: string, last: string) {
     (this.first = first), (this.last = last);
   }
@@ -21,6 +21,15 @@ class Player {
     this._score = newScore;
   }
 }
+
+class SuperPlayer extends Player {
+  public isAdmin: boolean = true;
+
+  maxScore() {
+    return (this._score = 10000);
+  }
+}
+
 const Ram = new Player("Ram", "Ram");
 console.log(Ram.fullName);
 console.log((Ram.score = 20));
