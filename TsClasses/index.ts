@@ -44,3 +44,26 @@ console.log((Ram.score = 20));
 //   }
 // }
 // const Ram = new Player("Ram", "Ram");
+
+// interface and Classes
+
+interface Colorful {
+  color: string;
+}
+
+interface printable {
+  print(): void;
+}
+
+class Bike implements Colorful {
+  constructor(public color: string) {}
+}
+class Jacket implements Colorful, printable {
+  constructor(public brand: string, public color: string) {}
+  print(): void {
+    console.log(`${this.color} ${this.brand}`);
+  }
+}
+
+const bike1 = new Bike("Red");
+const jacket1 = new Jacket("nike", "blue");
