@@ -109,3 +109,28 @@ const John = new FullTimeEmployee("John", "John", 500000);
 const Harry = new PartTimeEmployee("Harry", "Harry", 20, 3000);
 console.log(John.getPay());
 console.log(Harry.getPay());
+
+// generics
+
+interface dog {
+  name: string;
+  breed: string;
+  age: number;
+}
+
+function identity<Type>(item: Type): Type {
+  return item;
+}
+identity<dog>({ name: "GermanShaperd", breed: "GermanShaperd", age: 8 });
+
+function getRandomElement<T>(item: T[]): T {
+  const randIndex = Math.floor(Math.random() * item.length);
+  return item[randIndex];
+}
+console.log(getRandomElement<string>(["he", "li", "fe"]));
+console.log(getRandomElement([4, 5, 3, 2, 5]));
+
+function MultipleTypes<T, U>(first: T, second: U) {
+  return { ...first, ...second };
+}
+MultipleTypes({ first: [4, 5, 9] }, { second: ["one", "two"] });

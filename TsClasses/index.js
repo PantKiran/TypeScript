@@ -120,3 +120,12 @@ var John = new FullTimeEmployee("John", "John", 500000);
 var Harry = new PartTimeEmployee("Harry", "Harry", 20, 3000);
 console.log(John.getPay());
 console.log(Harry.getPay());
+function identity(item) {
+    return item;
+}
+identity({ name: "GermanShaperd", breed: "GermanShaperd", age: 8 });
+function getRandomElement(item) {
+    var randIndex = Math.floor(Math.random() * item.length);
+    return item[randIndex];
+}
+console.log(getRandomElement(["ki", "li", "si"]));
