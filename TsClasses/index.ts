@@ -189,7 +189,7 @@ function Triple(value: number | string) {
 }
 Triple("hi");
 
-// truthiness gurard
+// truthiness gurard narrowing
 function printLetters(word: string) {
   if (word) {
     for (let char of word) {
@@ -200,3 +200,14 @@ function printLetters(word: string) {
   }
 }
 printLetters("hello");
+
+// equality narrowing
+function someFunc(x: string | boolean, y: string | number) {
+  if (x === y) {
+    x.toUpperCase();
+    y.toLocaleLowerCase();
+  } else {
+    console.log(x);
+    console.log(y);
+  }
+}
