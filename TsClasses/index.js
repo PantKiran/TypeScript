@@ -13,6 +13,17 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var Player = /** @class */ (function () {
     function Player(first, last) {
         this._score = 0;
@@ -128,4 +139,31 @@ function getRandomElement(item) {
     var randIndex = Math.floor(Math.random() * item.length);
     return item[randIndex];
 }
-console.log(getRandomElement(["ki", "li", "si"]));
+console.log(getRandomElement(["he", "li", "fe"]));
+console.log(getRandomElement([4, 5, 3, 2, 5]));
+function MultipleTypes(first, second) {
+    return __assign(__assign({}, first), second);
+}
+MultipleTypes({ first: [4, 5, 9] }, { second: ["one", "two"] });
+function getDoubleLength(things) {
+    return things.length * 2;
+}
+// default parameter
+function makeEmptyList() {
+    return [];
+}
+var nums = makeEmptyList();
+var bools = makeEmptyList();
+var PlayList = /** @class */ (function () {
+    function PlayList() {
+        this.queue = [];
+    }
+    PlayList.prototype.add = function (el) {
+        this.queue.push(el);
+    };
+    return PlayList;
+}());
+var songs = new PlayList();
+var videos = new PlayList();
+songs.add({ title: "random song", artist: "random artist" });
+console.log(songs.queue);

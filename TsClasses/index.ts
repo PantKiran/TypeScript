@@ -130,7 +130,52 @@ function getRandomElement<T>(item: T[]): T {
 console.log(getRandomElement<string>(["he", "li", "fe"]));
 console.log(getRandomElement([4, 5, 3, 2, 5]));
 
-function MultipleTypes<T, U>(first: T, second: U) {
+function MultipleTypes<T extends object, U extends object>(
+  first: T,
+  second: U
+) {
   return { ...first, ...second };
 }
 MultipleTypes({ first: [4, 5, 9] }, { second: ["one", "two"] });
+
+// generics with interface
+interface Lengthy {
+  length: number;
+}
+
+function getDoubleLength<T extends Lengthy>(things: T): number {
+  return things.length * 2;
+}
+
+// default parameter
+function makeEmptyList<T = number>(): T[] {
+  return [];
+}
+
+const nums = makeEmptyList();
+const bools = makeEmptyList<boolean>();
+
+// writing generic classes
+
+interface Song {
+  title: string;
+  artist: string;
+}
+
+interface Video {
+  title: string;
+  creator: string;
+  resolution: string;
+}
+
+class PlayList<T> {
+  public queue: T[] = [];
+  add(el: T) {
+    this.queue.push(el);
+  }
+}
+
+const songs = new PlayList<Song>();
+const videos = new PlayList<Video>();
+songs.add({ title: "random song", artist: "random artist" });
+console.log(songs.queue);
