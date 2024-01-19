@@ -175,3 +175,16 @@ function Triple(value) {
     console.log(value * 3);
 }
 Triple("hi");
+// truthiness gurard
+function printLetters(word) {
+    if (word) {
+        for (var _i = 0, word_1 = word; _i < word_1.length; _i++) {
+            var char = word_1[_i];
+            console.log(char);
+        }
+    }
+    else {
+        console.log("You must pass In a word");
+    }
+}
+printLetters("hello");

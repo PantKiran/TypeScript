@@ -183,8 +183,20 @@ console.log(songs.queue);
 // type narrowing
 function Triple(value: number | string) {
   if (typeof value === "string") {
-    return console.log(value.repeat(3));
+    return console.log(value);
   }
   console.log(value * 3);
 }
 Triple("hi");
+
+// truthiness gurard
+function printLetters(word: string) {
+  if (word) {
+    for (let char of word) {
+      console.log(char);
+    }
+  } else {
+    console.log("You must pass In a word");
+  }
+}
+printLetters("hello");
