@@ -179,3 +179,12 @@ const songs = new PlayList<Song>();
 const videos = new PlayList<Video>();
 songs.add({ title: "random song", artist: "random artist" });
 console.log(songs.queue);
+
+// type narrowing
+function Triple(value: number | string) {
+  if (typeof value === "string") {
+    return console.log(value.repeat(3));
+  }
+  console.log(value * 3);
+}
+Triple("hi");

@@ -167,3 +167,11 @@ var songs = new PlayList();
 var videos = new PlayList();
 songs.add({ title: "random song", artist: "random artist" });
 console.log(songs.queue);
+// type narrowing
+function Triple(value) {
+    if (typeof value === "string") {
+        return console.log(value);
+    }
+    console.log(value * 3);
+}
+Triple("hi");
