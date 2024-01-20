@@ -211,3 +211,26 @@ function someFunc(x: string | boolean, y: string | number) {
     console.log(y);
   }
 }
+
+// narrwoing with 'in 'operator
+
+interface Movie {
+  title: string;
+  duration: number;
+}
+
+interface TvShow {
+  title: string;
+  noEpisodes: number;
+  episodeDuration: number;
+}
+
+function getRunTime(media: Movie | TvShow) {
+  if ("noEpisodes" in media) {
+    return media.noEpisodes * media.episodeDuration;
+  } else {
+    return media.duration;
+  }
+}
+
+getRunTime({ title: "Random Movie", duration: 160 });

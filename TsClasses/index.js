@@ -175,7 +175,7 @@ function Triple(value) {
     console.log(value * 3);
 }
 Triple("hi");
-// truthiness gurard
+// truthiness gurard narrowing
 function printLetters(word) {
     if (word) {
         for (var _i = 0, word_1 = word; _i < word_1.length; _i++) {
@@ -188,3 +188,23 @@ function printLetters(word) {
     }
 }
 printLetters("hello");
+// equality narrowing
+function someFunc(x, y) {
+    if (x === y) {
+        x.toUpperCase();
+        y.toLocaleLowerCase();
+    }
+    else {
+        console.log(x);
+        console.log(y);
+    }
+}
+function getRunTime(media) {
+    if ("noEpisodes" in media) {
+        return media.noEpisodes * media.episodeDuration;
+    }
+    else {
+        return media.duration;
+    }
+}
+getRunTime({ title: "Random Movie", duration: 160 });
