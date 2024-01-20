@@ -259,3 +259,27 @@ function printName(entity: User | Company) {
     entity;
   }
 }
+
+// Type  pridicates
+interface Cat {
+  name: string;
+  numLives: number;
+}
+interface Dog {
+  name: string;
+  breed: string;
+}
+
+// animal is Cat --> type pridicate
+function isCat(animal: Cat | Dog): animal is Cat {
+  return (animal as Cat).numLives !== undefined;
+}
+
+function makeNoise(animal: Cat | Dog): string {
+  if (isCat(animal)) {
+    animal;
+    return "meow";
+  } else {
+    animal;
+  }
+}
