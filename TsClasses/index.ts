@@ -234,3 +234,28 @@ function getRunTime(media: Movie | TvShow) {
 }
 
 getRunTime({ title: "Random Movie", duration: 160 });
+
+// instanceof narrowing
+function printFullDate(date: string | Date) {
+  if (date instanceof Date) {
+    return date.toUTCString();
+  } else {
+    return new Date(date).toUTCString();
+  }
+}
+// we also can use with class too
+
+class User {
+  constructor(public username: string) {}
+}
+class Company {
+  constructor(name: string) {}
+}
+
+function printName(entity: User | Company) {
+  if (entity instanceof User) {
+    entity;
+  } else {
+    entity;
+  }
+}
