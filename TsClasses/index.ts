@@ -283,3 +283,48 @@ function makeNoise(animal: Cat | Dog): string {
     animal;
   }
 }
+
+// type narrowing using dercriminated unions
+
+interface Rabbit {
+  name: string;
+  age: number;
+  weight: number;
+  kind: "rabbit";
+}
+interface Cow {
+  name: string;
+  age: number;
+  weight: number;
+  kind: "cow";
+}
+
+interface Pig {
+  name: string;
+  age: number;
+  weight: number;
+  kind: "pig";
+}
+type FarmAnimal = Rabbit | Cow | Pig;
+function getFarmAnimalSound(animal: FarmAnimal) {
+  switch (animal.kind) {
+    case "rabbit":
+      animal;
+      return "rabbit sound";
+    case "cow":
+      animal;
+      return "cow sound";
+    case "pig":
+      animal;
+      return "pig sound";
+  }
+}
+
+const animal1: Rabbit = {
+  name: "rabbit1",
+  age: 1,
+  weight: 2,
+  kind: "rabbit",
+};
+
+getFarmAnimalSound(animal1);

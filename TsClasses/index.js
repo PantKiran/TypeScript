@@ -208,3 +208,65 @@ function getRunTime(media) {
     }
 }
 getRunTime({ title: "Random Movie", duration: 160 });
+// instanceof narrowing
+function printFullDate(date) {
+    if (date instanceof Date) {
+        return date.toUTCString();
+    }
+    else {
+        return new Date(date).toUTCString();
+    }
+}
+// we also can use with class too
+var User = /** @class */ (function () {
+    function User(username) {
+        this.username = username;
+    }
+    return User;
+}());
+var Company = /** @class */ (function () {
+    function Company(name) {
+    }
+    return Company;
+}());
+function printName(entity) {
+    if (entity instanceof User) {
+        entity;
+    }
+    else {
+        entity;
+    }
+}
+// animal is Cat --> type pridicate
+function isCat(animal) {
+    return animal.numLives !== undefined;
+}
+function makeNoise(animal) {
+    if (isCat(animal)) {
+        animal;
+        return "meow";
+    }
+    else {
+        animal;
+    }
+}
+function getFarmAnimalSound(animal) {
+    switch (animal.kind) {
+        case "rabbit":
+            animal;
+            return "rabbit sound";
+        case "cow":
+            animal;
+            return "cow sound";
+        case "pig":
+            animal;
+            return "pig sound";
+    }
+}
+var animal1 = {
+    name: "rabbit1",
+    age: 1,
+    weight: 2,
+    kind: "rabbit",
+};
+getFarmAnimalSound(animal1);
