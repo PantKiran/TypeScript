@@ -261,6 +261,12 @@ function getFarmAnimalSound(animal) {
         case "pig":
             animal;
             return "pig sound";
+        case "sheep":
+            animal;
+            return "sheep sound";
+        default:
+            var _exhaustiveCheck = animal; //// exhaustiveness check with Never
+            return _exhaustiveCheck;
     }
 }
 var animal1 = {
